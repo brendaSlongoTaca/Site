@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números primos</title>
+    <script>
+        function limite(){
+            var numero = parseInt(document.getElementById("numero").value);
+            if ( (numero < 1) || (numero > 30) ){
+                window.alert("Valores fora da faixa!\n Faixa: 1 até 30");
+            }
+        }
+
+        function isPrimo(numero){
+            let i;
+            for(i = 2; i < numero; i++){
+                if( (numero % i) == 0){
+                    return 0; // não é primo
+                }
+            }
+            return 1; // É primo
+        }
+
+        function primos(){
+            var qtd = parseInt(document.getElementById("numero").value);
+            var saida = "";
+            var numero = 1;
+            for(var contador = 1; contador <= qtd; ){
+                if ( isPrimo(numero) ){
+                    contador++;
+                    saida += "o número "+numero+" é primo.<br>";
+                }
+                numero++;
+            }
+            document.getElementById("resposta").innerHTML = saida;
+        }
+
+    </script>
+
+    <style>
+        body{
+            background-color: rgb(210, 121, 57);
+            
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1 style="color: rgb(90, 47, 16);">Números primos</h1>
+        <h2 style="color: rgb(90, 47, 16);">Solicitar ao usuário um valor que representa a quantidade de números primos que ele quer ver</h2>
+    </header>
+    <section>
+        <form action="http://usuarios.upf.br/~schaeffer/primos.html" method="post"> <!--endereço para onde os dados do formulário serão enviados quando o usuário clicar em "enviar ao server"-->
+            <label for="numero" style="color: rgb(90, 47, 16);">Quantidade</label>
+            <input type="number" name="numero" id="numero" min="1" max="30" onblur="limite()">
+            <input type="text" name="golsdointer">
+            <br><br>
+            <input type="button" value="mostrar os números primos" onclick="primos()">
+            <input type="submit" value="enviar ao server">
+        </form>
+    </section>
+    <section id="resposta">  </section>
+</body>
+</html>

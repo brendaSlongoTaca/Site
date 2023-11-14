@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Exercícios de programação. Criação da tabuada em JS">
+        <meta author="Brenda Slongo Taca"> 
+        <title>Tabuada</title>
+
+        <script>
+            function tabuada(){
+                var i;
+                var resposta = "";
+                var numero = parseInt(document.getElementById("numero").value);
+               
+                    for(i=1; i <=10; i++){
+                        resposta += i + " x " + numero + " = " + (numero * i) + "<br>";
+                
+                    }
+                    document.getElementById("tabuada").innerHTML = resposta;
+            }
+
+        </script>
+
+        <style>
+            .fundo {
+                background-color: rgba(165, 42, 42, 0.473);
+                
+            }
+
+        </style>
+    </head>
+
+    <body class="fundo">
+        <header>
+            <center>
+                <h1 style="color: brown;">
+                    <u>
+                        Tabuada
+                    </u>
+                </h1>
+            </center>
+            <br><br>
+            Solicite ao usuário um número inteiro e  mostre a tabuada deste número:
+            <br>
+
+            
+
+
+        </header>
+
+        <section>
+            <form>
+                <br>
+                <label for="numero">Número</label>
+                <input type="number" id="numero" value="1" min="0" max="10">
+                <br><br>
+                <input type="button" size="5px" value="tabuada" onclick="tabuada()">
+            </form>
+        </section>
+
+
+        <section style="color: rgb(133, 22, 22);">
+            <p id="tabuada">
+
+            </p>
+        </section>
+    </body>
+</html>

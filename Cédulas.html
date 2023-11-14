@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa eletrônica</title>
+
+    <script>
+        function cedulas() {
+            var objeto = document.getElementById("valor");
+            var valor = parseFloat(objeto.value) * 100; // Multiplicar por 100 para lidar com centavos em formato inteiro
+            // CÉDULAS
+            var cedulas100 = parseInt(valor / 10000); // 10000 centavos em 100 reais
+            document.getElementById("c100").value = cedulas100;
+            valor -= cedulas100 * 10000;
+
+            var cedulas50 = parseInt(valor / 5000); // 5000 centavos em 50 reais
+            document.getElementById("c50").value = cedulas50;
+            valor -= cedulas50 * 5000;
+
+            var cedulas20 = parseInt(valor / 2000); // 2000 centavos em 20 reais
+            document.getElementById("c20").value = cedulas20;
+            valor -= cedulas20 * 2000;
+
+            var cedulas10 = parseInt(valor / 1000); // 1000 centavos em 10 reais
+            document.getElementById("c10").value = cedulas10;
+            valor -= cedulas10 * 1000;
+
+            var cedulas5 = parseInt(valor / 500); // 500 centavos em 5 reais
+            document.getElementById("c5").value = cedulas5;
+            valor -= cedulas5 * 500;
+
+            var cedulas2 = parseInt(valor / 200); // 200 centavos em 2 reais
+            document.getElementById("c2").value = cedulas2;
+            valor -= cedulas2 * 200;
+
+            // MOEDAS
+            var moedas1 = parseInt(valor / 100); // 100 centavos em 1 real
+            document.getElementById("m1").value = moedas1;
+            valor -= moedas1 * 100;
+
+            var moedas50 = parseInt(valor / 50); // 50 centavos
+            document.getElementById("m50").value = moedas50;
+            valor -= moedas50 * 50;
+
+            var moedas25 = parseInt(valor / 25); // 25 centavos
+            document.getElementById("m25").value = moedas25;
+            valor -= moedas25 * 25;
+
+            var moedas10 = parseInt(valor / 10); // 10 centavos
+            document.getElementById("m10").value = moedas10;
+            valor -= moedas10 * 10;
+
+            var moedas05 = parseInt(valor / 5); // 5 centavos
+            document.getElementById("m05").value = moedas05;
+            valor -= moedas05 * 5;
+
+            var moedas01 = valor; // Resto são moedas de 1 centavo
+            document.getElementById("m01").value = moedas01;
+
+
+        }
+           
+    </script>
+
+
+
+    <style>
+        /*
+        //OUTRA FORMA DE MUDAR O FUNDO:
+        #valor{
+            background-color:rgba(174, 212, 87, 0.408) ;
+        }
+        */
+
+        body{
+            background-color: rgb(213, 255, 114);
+            color:rgb(6, 99, 1);
+            margin-top: 5px;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+    <header>
+        <center  style="font-size: 50px;">
+            <b>
+                Contagem de notas e moedas.   
+            </b>              
+        </center>
+        <h3>
+            Solicitar ao usuário um valor em Reais e apresentar a quantidade mínima de cédulas e moedas para compor este valor.
+        </h3>
+    </header>
+
+    <section>
+        <form>
+            <label>
+                <b>
+                    RS
+                </b>
+                <input type="number" id="valor" style="background-color: rgba(174, 252, 143, 0.831);">
+                <br><br>
+                <input type="button" value="Calcular" onclick="cedulas()">
+            </label>
+        </form>
+    </section>
+    <br><br>
+
+    <section>
+        <form>
+            <label>Cédulas de R$ 100,00</label>
+            <input type="number" id="c100"><br><br>
+            <label>Cédulas de R$ 50,00</label>
+            <input type="number" id="c50"><br><br>
+            <label>Cédulas de R$ 20,00</label>
+            <input type="number" id="c20"><br><br>
+            <label>Cédulas de R$ 10,00</label>
+            <input type="number" id="c10"><br><br>
+            <label>Cédulas de R$ 5,00</label>
+            <input type="number" id="c5"><br><br>
+            <label>Cédulas de R$ 2,00</label>
+            <input type="number" id="c2"><br><br>
+            
+            <label>Moedas de R$ 1,00</label>
+            <input type="number" id="m1"><br><br>
+            <label>Moedas de $ 0,50</label>
+            <input type="number" id="m50"><br><br>
+            <label>Moedas de R$ 0,25</label>
+            <input type="number" id="m25"><br><br>
+            <label>Moedas de R$ 0,10</label>
+            <input type="number" id="m10"><br><br>
+            <label>Moedas de R$ 0,05</label>
+            <input type="number" id="m05"><br><br>
+            <label>Moedas de R$ 0,01</label>
+            <input type="number" id="m01"><br><br>           
+        
+        </form>
+    </section>
+    
+</body>
+</html>
+      
